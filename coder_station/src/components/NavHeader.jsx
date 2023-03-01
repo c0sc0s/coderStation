@@ -1,6 +1,13 @@
 import React from 'react'
+
+// router
 import { NavLink } from 'react-router-dom'
-import { Input, Select, Button } from "antd";
+
+// antd
+import { Input, Select } from "antd";
+
+// components
+import AvatorAndLogin from './AvatorAndLogin';
 
 export default function NavHeader() {
   return (
@@ -28,11 +35,10 @@ export default function NavHeader() {
             <Select.Option value="issue">问答</Select.Option>
             <Select.Option value="book">书籍</Select.Option>
           </Select>
-          <Input.Search
+          <Input
             placeholder="请输入要搜索的内容"
             allowClear
-            className='input'
-            enterButton="搜索"
+            enterbutton="搜索"
             size="large"
             style={{
               width: "80%"
@@ -42,7 +48,7 @@ export default function NavHeader() {
       </div>
       {/* 登录按钮 */}
       <div className="loginBtnContainer">
-        <Button type="primary" size="large">注册/登录</Button>
+        <AvatorAndLogin></AvatorAndLogin>
       </div>
     </div>
   )
