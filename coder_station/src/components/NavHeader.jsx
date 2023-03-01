@@ -9,7 +9,7 @@ import { Input, Select } from "antd";
 // components
 import AvatorAndLogin from './AvatorAndLogin';
 
-export default function NavHeader() {
+export default function NavHeader(props) {
   return (
     <div className="headerContainer">
       {/* 头部 logo */}
@@ -48,7 +48,7 @@ export default function NavHeader() {
       </div>
       {/* 登录按钮 */}
       <div className="loginBtnContainer">
-        <AvatorAndLogin></AvatorAndLogin>
+        <AvatorAndLogin loginHandle={props.loginHandle}></AvatorAndLogin>
       </div>
     </div>
   )

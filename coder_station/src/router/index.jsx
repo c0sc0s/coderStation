@@ -1,4 +1,5 @@
 import { Route, Routes, Navigate } from "react-router-dom";
+import "../index.css"
 
 // 引入页面
 import Issues from '../pages/Issues';

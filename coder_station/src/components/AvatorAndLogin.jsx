@@ -10,7 +10,7 @@ import { UserOutlined } from "@ant-design/icons"
 // css
 import styles from "../css/AvatorAndLogin.module.css"
 
-export default function AvatorAndLogin() {
+export default function AvatorAndLogin(props) {
   let { isLogin } = useSelector(state => state.user);
 
   let view = null;
@@ -33,7 +33,7 @@ export default function AvatorAndLogin() {
       </Popover>
     )
   } else {
-    view = <Button type='primary' size='large'>登陆/注册</Button>
+    view = <Button type='primary' size='large' onClick={props.loginHandle}>登陆/注册</Button>
   }
 
   return (
