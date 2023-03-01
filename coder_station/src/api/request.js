@@ -6,7 +6,10 @@ const service = axios.create({
 
 service.interceptors.request.use(config => {
   // 请求前的回调
-
+  const token = localStorage.getItem("userToken");
+  if (token) {
+    config.headers['Authorization'] = "Bearer " + token;
+  }
   return config;
 }, err => {
   console.log("请求错误", err)

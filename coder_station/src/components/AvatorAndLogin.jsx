@@ -4,16 +4,19 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 // antd
-import { Avatar, Button, List, Popover } from 'antd';
+import { Avatar, Button, List, Popover, Image } from 'antd';
 import { UserOutlined } from "@ant-design/icons"
 
 // css
 import styles from "../css/AvatorAndLogin.module.css"
 
 export default function AvatorAndLogin(props) {
-  let { isLogin } = useSelector(state => state.user);
-
+  let { isLogin, userInfo } = useSelector(state => state.user);
   let view = null;
+  const listClickHandle = item => {
+    (item === "退出登陆") && props.signOutHandle();
+  }
+
   if (isLogin) {
     const popoverContent = (
       <List
@@ -21,14 +24,14 @@ export default function AvatorAndLogin(props) {
         size="large"
         renderItem={(item) => {
           return (
-            <List.Item style={{ cursor: "pointer" }}>{item}</List.Item>
+            <List.Item style={{ cursor: "pointer" }} onClick={() => listClickHandle(item)}>{item}</List.Item>
           )
         }}
       />)
     view = (
       <Popover content={popoverContent} trigger="hover" placement="bottom">
         <div className={styles.avatarContainer}>
-          <Avatar size={'large'} preview="false" icon={<UserOutlined />} />
+          <Avatar src={<Image src={userInfo?.data?.avatar} preview="false" />} size={'large'} icon={<UserOutlined />} />
         </div>
       </Popover>
     )

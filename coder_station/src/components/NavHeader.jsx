@@ -48,7 +48,7 @@ export default function NavHeader(props) {
       </div>
       {/* 登录按钮 */}
       <div className="loginBtnContainer">
-        <AvatorAndLogin loginHandle={props.loginHandle}></AvatorAndLogin>
+        <AvatorAndLogin signOutHandle={props.signOutHandle} loginHandle={props.loginHandle}></AvatorAndLogin>
       </div>
     </div>
   )
